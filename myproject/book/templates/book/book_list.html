@@ -1,0 +1,23 @@
+<!-- templates/book/book_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sách</title>
+</head>
+<body>
+    <h1>Danh sách Sách</h1>
+
+    <!-- Kiểm tra xem có sách không -->
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li><strong>{{ book.title }}</strong> - Tác giả: {{ book.author }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Không có sách nào trong cơ sở dữ liệu.</p>
+    {% endif %}
+</body>
+</html>
