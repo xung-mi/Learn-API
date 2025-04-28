@@ -1,8 +1,18 @@
 from django.urls import path
-from . import views  # Đảm bảo rằng bạn đã import views từ app book
+from . import views
 
 urlpatterns = [
-    path('', views.get_books, name='book_list'),  # Đường dẫn 'book/' sẽ gọi get_books
-    path('top/', views.get_top_books, name='get_top_books'),  # Đường dẫn 'book/top/' sẽ gọi get_top_books
-    path('api/authors/', views.get_authors, name='get_authors'),
+    # Book URLs
+    path('books/', views.get_books, name='book-list'),
+    path('books/create/', views.create_book, name='book-create'),
+    path('books/<int:pk>/', views.get_book, name='book-detail'),
+    path('books/<int:pk>/update/', views.update_book, name='book-update'),
+    path('books/<int:pk>/delete/', views.delete_book, name='book-delete'),
+    
+    # Author URLs
+    path('authors/', views.get_authors, name='author-list'),
+    path('authors/create/', views.create_author, name='author-create'),
+    path('authors/<int:pk>/', views.get_author, name='author-detail'),
+    path('authors/<int:pk>/update/', views.update_author, name='author-update'),
+    path('authors/<int:pk>/delete/', views.delete_author, name='author-delete'),
 ]
